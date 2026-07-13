@@ -4,9 +4,13 @@
   --muted: #735b6d;
   --pink: #f06aa8;
   --pink-deep: #d94f92;
+  --blue: #6a8cff;
+  --mint: #78cdb8;
+  --yellow: #ffd36a;
   --soft: #fff2f8;
   --paper: rgba(255, 255, 255, 0.9);
   --line: #f4bfd9;
+  --line-cool: #d7e0ff;
 }
 
 * {
@@ -23,8 +27,8 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", sans-serif;
   color: var(--ink);
   background:
-    radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.9) 0, rgba(255, 255, 255, 0) 34rem),
-    linear-gradient(180deg, #fff8fb 0%, #ffe4f0 100%);
+    linear-gradient(135deg, rgba(255, 242, 248, 0.88) 0%, rgba(246, 249, 255, 0.92) 46%, rgba(240, 255, 249, 0.88) 100%),
+    #fff8fb;
 }
 
 main {
@@ -48,6 +52,27 @@ main {
   padding: 44px 0;
 }
 
+.landing {
+  width: min(1080px, calc(100vw - 32px));
+  padding: 52px 0 64px;
+}
+
+.intro {
+  min-height: 48vh;
+  display: grid;
+  align-content: center;
+  padding: clamp(28px, 7vw, 72px) 0 44px;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--pink-deep);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
 h1 {
   margin: 0 0 10px;
   font-size: clamp(30px, 7vw, 48px);
@@ -56,10 +81,30 @@ h1 {
   color: var(--pink);
 }
 
+.intro h1 {
+  max-width: 680px;
+  margin-bottom: 18px;
+  color: var(--ink);
+  font-size: clamp(42px, 8vw, 82px);
+  line-height: 1.02;
+}
+
 h2 {
   margin: 34px 0 10px;
   font-size: 20px;
   line-height: 1.3;
+  letter-spacing: 0;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(28px, 5vw, 42px);
+}
+
+h3 {
+  margin: 0 0 8px;
+  font-size: 24px;
+  line-height: 1.2;
   letter-spacing: 0;
 }
 
@@ -72,6 +117,12 @@ li {
 
 p {
   margin: 0 0 12px;
+}
+
+.lead {
+  max-width: 620px;
+  font-size: clamp(18px, 3vw, 22px);
+  line-height: 1.65;
 }
 
 ul {
@@ -103,6 +154,100 @@ a:hover {
   margin: 24px 0;
 }
 
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+  margin-top: 26px;
+}
+
+.primary-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border-radius: 999px;
+  color: #ffffff;
+  background: var(--pink-deep);
+  box-shadow: 0 12px 24px rgba(217, 79, 146, 0.24);
+}
+
+.primary-link:hover {
+  text-decoration: none;
+  background: #c94686;
+}
+
+.services {
+  padding: 24px 0 18px;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: end;
+  margin-bottom: 18px;
+}
+
+.service-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.8fr);
+  gap: 16px;
+}
+
+.service-card {
+  min-height: 220px;
+  border: 1px solid rgba(244, 191, 217, 0.78);
+  border-radius: 20px;
+  padding: clamp(22px, 4vw, 34px);
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 18px 48px rgba(105, 77, 114, 0.12);
+}
+
+.service-card-featured {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(18px, 4vw, 30px);
+  align-items: center;
+}
+
+.service-card-quiet {
+  border-color: var(--line-cool);
+  background: rgba(248, 251, 255, 0.78);
+}
+
+.service-icon {
+  width: clamp(84px, 18vw, 136px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.74);
+  border-radius: 30px;
+  color: #ffffff;
+  font-size: clamp(26px, 6vw, 42px);
+  font-weight: 900;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0)),
+    linear-gradient(145deg, var(--pink) 0%, var(--blue) 58%, var(--mint) 100%);
+  box-shadow: 0 18px 38px rgba(217, 79, 146, 0.22);
+}
+
+.service-kicker {
+  margin: 0 0 8px;
+  color: var(--pink-deep);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.service-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
 .app-list {
   display: grid;
   gap: 12px;
@@ -129,4 +274,24 @@ a:hover {
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 24px;
+}
+
+@media (max-width: 760px) {
+  .intro {
+    min-height: auto;
+    padding-top: 44px;
+  }
+
+  .section-heading {
+    display: block;
+  }
+
+  .service-grid,
+  .service-card-featured {
+    grid-template-columns: 1fr;
+  }
+
+  .service-icon {
+    border-radius: 24px;
+  }
 }
