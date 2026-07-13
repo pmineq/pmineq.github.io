@@ -3,20 +3,47 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>pmineq Apps</title>
+  <title>pmineq</title>
   <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
-  <main class="home">
-    <section class="page">
-      <h1>pmineq Apps</h1>
-      <p>앱별 개인정보처리방침과 지원 페이지를 모아두는 공개 페이지입니다.</p>
+  <main class="landing">
+    <section class="intro">
+      <p class="eyebrow">Independent iOS apps</p>
+      <h1>작고 감각적인 서비스를 만듭니다.</h1>
+      <p class="lead">사진, 일상 기록, 취향을 가볍게 다루는 앱을 하나씩 쌓아가고 있습니다.</p>
+      <div class="actions">
+        <a class="primary-link" href="./zencut/">Zencut 보기</a>
+        <a href="./zencut/privacy.html">개인정보처리방침</a>
+      </div>
+    </section>
 
-      <div class="app-list">
-        <a class="app-card" href="./zencut/">
-          <strong>Zencut</strong>
-          <span>개인정보처리방침 및 앱 지원</span>
-        </a>
+    <section class="services" aria-labelledby="services-title">
+      <div class="section-heading">
+        <p class="eyebrow">Services</p>
+        <h2 id="services-title">Available now</h2>
+      </div>
+
+      <div class="service-grid">
+        <article class="service-card service-card-featured">
+          <div class="service-icon" aria-hidden="true">ZC</div>
+          <div>
+            <p class="service-kicker">iOS app</p>
+            <h3>Zencut</h3>
+            <p>핑크 디지털카메라 감성으로 스토리컷 사진을 만드는 포토부스 앱입니다.</p>
+            <nav class="service-links" aria-label="Zencut links">
+              <a href="./zencut/">소개</a>
+              <a href="./zencut/privacy.html">개인정보처리방침</a>
+              <a href="./zencut/support.html">지원</a>
+            </nav>
+          </div>
+        </article>
+
+        <article class="service-card service-card-quiet">
+          <p class="service-kicker">Next</p>
+          <h3>More apps</h3>
+          <p>새로운 앱이 출시되면 이곳에 하나씩 추가됩니다.</p>
+        </article>
       </div>
     </section>
   </main>
