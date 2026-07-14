@@ -43,9 +43,7 @@
 .hero-kicker,
 .eyebrow,
 .service-kicker,
-.board-label,
-.board-note,
-.idea-strip span {
+.board-label {
   font-family: var(--font-pixel);
   letter-spacing: 0;
 }
@@ -216,12 +214,6 @@
   font-weight: 700;
 }
 
-.board-note {
-  margin: 4px 0 0;
-  color: #9a6b85;
-  font-size: 12px;
-}
-
 .studio-section {
   padding: clamp(42px, 7vw, 72px) 0;
 }
@@ -332,80 +324,6 @@
   font-weight: 850;
 }
 
-.method-list {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.method-item {
-  min-height: 210px;
-  padding: 22px;
-  border: 1px solid rgba(244, 191, 217, 0.68);
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.66);
-}
-
-.method-item span {
-  display: block;
-  margin-bottom: 34px;
-  color: #55aee8;
-  font-size: 14px;
-  font-weight: 900;
-}
-
-.method-item strong {
-  display: block;
-  margin-bottom: 8px;
-  color: #302534;
-  font-size: 22px;
-  line-height: 1.15;
-}
-
-.method-item p {
-  color: #725e6c;
-  font-size: 15px;
-  line-height: 1.72;
-}
-
-.studio-roadmap {
-  display: grid;
-  gap: 18px;
-}
-
-.idea-strip {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-}
-
-.idea-strip article {
-  display: grid;
-  gap: 12px;
-  min-height: 148px;
-  align-content: end;
-  padding: 20px;
-  border: 1px solid rgba(215, 224, 255, 0.78);
-  border-radius: 22px;
-  background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.74), rgba(244, 249, 255, 0.74));
-}
-
-.idea-strip span {
-  color: #55aee8;
-  font-size: 13px;
-  font-weight: 800;
-}
-
-.idea-strip strong {
-  color: #2f2630;
-  font-size: 20px;
-  line-height: 1.25;
-}
-
 @media (max-width: 860px) {
   .studio-nav {
     min-height: 64px;
@@ -413,9 +331,7 @@
 
   .studio-hero,
   .section-heading,
-  .service-grid,
-  .method-list,
-  .idea-strip {
+  .service-grid {
     grid-template-columns: 1fr;
   }
 
@@ -458,9 +374,7 @@
     font-size: 16px;
   }
 
-  .service-card,
-  .method-item,
-  .idea-strip article {
+  .service-card {
     border-radius: 18px;
   }
 }
