@@ -5,32 +5,59 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>pmineq</title>
   <link rel="stylesheet" href="./assets/style.css?v=20260714-pretendard-display-v1">
+  <link rel="stylesheet" href="./assets/home.css?v=20260714-studio-v1">
 </head>
-<body>
-  <main class="landing">
-    <section class="intro pixel-intro">
-      <p class="hero-brand">MINE X ZENCO</p>
-      <h1 id="home-title">취향을 만듭니다.</h1>
-      <p class="lead">사진, 일상 기록, 취향을 가볍게 다루는 앱을 하나씩 쌓아가고 있습니다.</p>
-      <div class="actions">
-        <a class="primary-link" href="./zencut/">Zencut 보기</a>
-        <a href="./zencut/privacy.html">개인정보처리방침</a>
+<body class="home-page">
+  <header class="studio-nav" data-hero-reveal>
+    <a class="studio-mark" href="./" aria-label="pmineq home">MINE X ZENCO</a>
+    <nav class="studio-nav-links" aria-label="Main navigation">
+      <a href="#services">Services</a>
+      <a href="#studio">Studio</a>
+      <a href="./zencut/privacy.html">Privacy</a>
+    </nav>
+  </header>
+
+  <main class="studio-home">
+    <section class="studio-hero" aria-labelledby="home-title">
+      <div class="hero-copy">
+        <p class="hero-kicker" data-hero-reveal>indie app studio</p>
+        <h1 id="home-title" data-hero-reveal>작고 선명한 취향을 앱으로 만듭니다.</h1>
+        <p class="hero-lead" data-hero-reveal>사진, 기록, 취향을 가볍게 다루는 서비스를 하나씩 실험하고 출시합니다.</p>
+        <div class="studio-actions" data-hero-reveal>
+          <a class="primary-link" href="./zencut/">Zencut 보기</a>
+          <a class="text-link" href="#services">서비스 소개</a>
+        </div>
       </div>
+
+      <aside class="studio-board" data-hero-reveal data-float aria-label="Studio overview">
+        <p class="board-label">Now shipping</p>
+        <div class="board-line">
+          <span>01</span>
+          <strong>Zencut</strong>
+          <small>photo booth camera</small>
+        </div>
+        <div class="board-line">
+          <span>02</span>
+          <strong>Daily tools</strong>
+          <small>quiet utilities</small>
+        </div>
+        <div class="board-note">soft visuals · playful records · privacy first</div>
+      </aside>
     </section>
 
-    <section class="services" aria-labelledby="services-title">
+    <section id="services" class="studio-section studio-services" aria-labelledby="services-title" data-studio-section>
       <div class="section-heading">
         <p class="eyebrow">Services</p>
-        <h2 id="services-title">Available now</h2>
+        <h2 id="services-title">지금 공개된 서비스</h2>
       </div>
 
       <div class="service-grid">
-        <article class="service-card service-card-featured">
+        <article class="service-card service-card-featured reveal-card">
           <img class="service-logo" src="data:image/webp;base64,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" alt="Zencut app logo">
           <div>
-            <p class="service-kicker">iOS app</p>
+            <p class="service-kicker">Available now</p>
             <h3>Zencut</h3>
-            <p>핑크 디지털카메라 감성으로 스토리컷 사진을 만드는 포토부스 앱입니다.</p>
+            <p>핑크 디지털카메라 감성으로 스토리컷 사진을 만드는 iOS 포토부스 앱입니다.</p>
             <nav class="service-links" aria-label="Zencut links">
               <a href="./zencut/">소개</a>
               <a href="./zencut/privacy.html">개인정보처리방침</a>
@@ -39,13 +66,60 @@
           </div>
         </article>
 
-        <article class="service-card service-card-quiet">
-          <p class="service-kicker">Next</p>
-          <h3>More apps</h3>
-          <p>새로운 앱이 출시되면 이곳에 하나씩 추가됩니다.</p>
+        <article class="service-card service-card-quiet reveal-card">
+          <p class="service-kicker">In progress</p>
+          <h3>작은 취향 도구들</h3>
+          <p>기록, 사진, 일상 루틴을 귀엽고 가볍게 다루는 앱을 순서대로 준비하고 있습니다.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="studio" class="studio-section studio-method" data-studio-section>
+      <div class="section-heading">
+        <p class="eyebrow">Studio rhythm</p>
+        <h2>작게 만들고, 빠르게 다듬고, 오래 쓰이게.</h2>
+      </div>
+
+      <ol class="method-list">
+        <li class="method-item">
+          <span>01</span>
+          <strong>Prototype</strong>
+          <p>먼저 감성과 사용 흐름을 작게 만들어 확인합니다.</p>
+        </li>
+        <li class="method-item">
+          <span>02</span>
+          <strong>Polish</strong>
+          <p>화면 밀도, 애니메이션, 사운드 없는 촉감을 차분하게 정리합니다.</p>
+        </li>
+        <li class="method-item">
+          <span>03</span>
+          <strong>Ship</strong>
+          <p>개인정보와 안정성을 챙긴 뒤 앱스토어에 올립니다.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section class="studio-section studio-roadmap" data-studio-section>
+      <p class="eyebrow">Next ideas</p>
+      <div class="idea-strip">
+        <article>
+          <span>Photo</span>
+          <strong>프레임과 스토리컷</strong>
+        </article>
+        <article>
+          <span>Daily</span>
+          <strong>취향 기록 루틴</strong>
+        </article>
+        <article>
+          <span>Play</span>
+          <strong>작은 꾸미기 도구</strong>
         </article>
       </div>
     </section>
   </main>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.11/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="./assets/site.js?v=20260714-studio-v1"></script>
 </body>
 </html>
