@@ -103,7 +103,7 @@
   margin: 0;
   color: #302534;
   font-size: clamp(30px, 3.7vw, 48px);
-  font-weight: 820;
+  font-weight: 620;
   line-height: 1.2;
   letter-spacing: 0;
   text-shadow: none;
@@ -160,20 +160,6 @@
   box-shadow: 0 24px 70px rgba(105, 77, 114, 0.14);
 }
 
-.studio-board::before {
-  position: absolute;
-  width: 74px;
-  height: 74px;
-  right: 20px;
-  top: -28px;
-  border-radius: 26px;
-  content: "";
-  background:
-    linear-gradient(135deg, rgba(105, 140, 255, 0.86), rgba(120, 205, 184, 0.78));
-  box-shadow: 0 16px 36px rgba(88, 152, 224, 0.18);
-  transform: rotate(7deg);
-}
-
 .board-label {
   position: relative;
   margin: 0 0 6px;
@@ -215,25 +201,21 @@
 }
 
 .studio-section {
+  scroll-margin-top: 92px;
   padding: clamp(42px, 7vw, 72px) 0;
 }
 
 .section-heading {
-  display: grid;
-  grid-template-columns: minmax(120px, 0.26fr) minmax(0, 1fr);
-  gap: clamp(18px, 5vw, 56px);
-  align-items: start;
-  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.section-heading h2 {
-  max-width: 720px;
+.section-heading .eyebrow {
   margin: 0;
-  color: #302534;
-  font-size: clamp(25px, 3vw, 38px);
-  font-weight: 820;
-  line-height: 1.16;
-  word-break: keep-all;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
 }
 
 .eyebrow,
@@ -251,6 +233,7 @@
 }
 
 .service-card {
+  scroll-margin-top: 92px;
   min-height: 360px;
   display: flex;
   flex-direction: column;
@@ -376,6 +359,7 @@
 
   .service-card {
     border-radius: 18px;
+    scroll-margin-top: 116px;
   }
 }
 
