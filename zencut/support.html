@@ -6,18 +6,72 @@
   <title>Zencut 지원</title>
   <link rel="icon" type="image/png" sizes="512x512" href="../assets/favicon.png?v=20260715-zenco-round">
   <link rel="stylesheet" href="../assets/style.css">
+  <style>
+    .support-email {
+      overflow-wrap: anywhere;
+      user-select: all;
+      -webkit-user-select: all;
+    }
+
+    .support-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 16px 0;
+    }
+
+    .support-action {
+      min-height: 44px;
+      padding: 10px 18px;
+      font: inherit;
+      font-weight: 700;
+      line-height: 1.5;
+      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
+    .support-action.primary-link {
+      background: #ad316f;
+      border-color: transparent;
+    }
+
+    .support-copy {
+      color: var(--ink);
+      background: #fff;
+    }
+
+    .support-action:focus-visible {
+      outline: 3px solid var(--ink);
+      outline-offset: 3px;
+    }
+
+    .support-status {
+      min-height: 1.75em;
+      margin-bottom: 0;
+    }
+  </style>
 </head>
 <body>
   <main>
     <article class="page">
       <h1>Zencut 지원</h1>
-      <p class="meta">최종 업데이트: 2026년 7월 13일</p>
+      <p class="meta">최종 업데이트: 2026년 9월 29일</p>
 
-      <p>Zencut 사용 중 문제가 있거나 개인정보처리방침에 대한 문의가 있는 경우 아래 GitHub Issues 페이지를 통해 문의할 수 있습니다.</p>
+      <p>Zencut 사용 중 불편한 점이나 궁금한 점이 있다면 이메일로 편하게 문의해주세요. 개인정보처리방침 관련 문의도 같은 주소로 보내주시면 됩니다.</p>
 
       <div class="notice">
-        <p><a href="https://github.com/pmineq/pmineq.github.io/issues">Zencut 문의 남기기</a></p>
+        <p><a class="support-email" id="support-email" href="mailto:zenco.zip@gmail.com?subject=Zencut%20%EB%AC%B8%EC%9D%98">zenco.zip@gmail.com</a></p>
+        <div class="support-actions">
+          <a class="support-action primary-link" href="mailto:zenco.zip@gmail.com?subject=Zencut%20%EB%AC%B8%EC%9D%98">이메일로 문의하기</a>
+          <button class="support-action support-copy" id="copy-email" type="button" hidden>이메일 주소 복사</button>
+        </div>
+        <p>메일 앱이 열리지 않으면 주소를 복사해 사용하는 메일 서비스에서 보내주세요.</p>
+        <p class="support-status" id="copy-status" role="status" aria-live="polite"></p>
       </div>
+
+      <p>문제가 발생한 상황과 기기 모델, iOS 버전, Zencut 앱 버전을 함께 알려주시면 확인에 도움이 됩니다.</p>
 
       <h2>자주 확인할 내용</h2>
       <ul>
@@ -32,5 +86,25 @@
       </nav>
     </article>
   </main>
+  <script>
+    const email = document.getElementById("support-email");
+    const copyButton = document.getElementById("copy-email");
+    const copyStatus = document.getElementById("copy-status");
+
+    copyButton.hidden = false;
+    copyButton.addEventListener("click", async () => {
+      copyButton.disabled = true;
+      copyStatus.textContent = "";
+
+      try {
+        await navigator.clipboard.writeText(email.textContent.trim());
+        copyStatus.textContent = "이메일 주소를 복사했어요.";
+      } catch {
+        copyStatus.textContent = "자동 복사가 되지 않았어요. 위 이메일 주소를 길게 누르거나 선택해 복사해주세요.";
+      } finally {
+        copyButton.disabled = false;
+      }
+    });
+  </script>
 </body>
 </html>
