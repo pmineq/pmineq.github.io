@@ -25,3 +25,14 @@ body.studio-page{background-color:#faf8ff;background-image:radial-gradient(rgba(
 @media(max-width:700px){.studio-page .site-header{height:72px}.studio-logo{width:103px;height:40px}.studio-page .site-header nav{gap:5px}.studio-page .site-header nav a{padding:8px 9px;font-size:9px}.studio-page .hero{min-height:auto}.studio-page .hero h1{font-size:clamp(76px,22.5vw,145px)}.studio-page .app-row{grid-template-columns:27px minmax(0,1fr) 59px 20px;gap:8px;min-height:110px}.studio-page .app-name{font-size:clamp(23px,7vw,40px)}.studio-page .app-meta{grid-column:2;grid-row:2;font-size:8px;margin-top:-26px;white-space:nowrap}.studio-page .app-icon,.studio-page .next-badge{grid-column:3;grid-row:1 / 3;width:54px;height:54px}.studio-page .app-icon{border-radius:16px}.studio-page .app-arrow{grid-column:4;grid-row:1}.studio-page .section-heading h2{font-size:59px}.studio-page .works-line{padding-inline:12px}}
 .studio-page .hero h1{letter-spacing:-.065em}
 .studio-page .section-heading h2,.studio-page .studio h2{letter-spacing:-.055em}
+/* Use the supplied high-resolution brand artwork without stretching it. */
+.studio-page .wordmark,.studio-page .footer-mark{display:flex;align-items:center}
+.studio-page .official-logo{display:block;width:138px;height:76px;object-fit:cover;object-position:center;mix-blend-mode:multiply}
+.studio-page .footer-mark .official-logo{width:120px;height:67px}
+.studio-page .hero h1{letter-spacing:-.035em}
+.studio-page .section-heading h2,.studio-page .studio h2{letter-spacing:-.035em}
+.studio-page .hero h1>span,.studio-page .section-heading h2 span,.studio-page .studio h2 span{display:inline-block;width:.105em;height:.105em;margin-left:.06em;border-radius:50%;vertical-align:baseline;line-height:0;text-indent:-9999px;overflow:hidden;background:#ff85c0}
+.studio-page .hero h1>span{background:#b39ddb}
+@media(max-width:700px){.studio-page .official-logo{width:112px;height:63px}.studio-page .footer-mark .official-logo{width:98px;height:55px}.studio-page .hero h1{font-size:clamp(70px,21vw,140px)}}
+.studio-page .hero h1{font-size:clamp(84px,15vw,230px);white-space:nowrap}
+@media(max-width:700px){.studio-page .hero h1{font-size:clamp(70px,21vw,140px)}}
