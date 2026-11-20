@@ -7,6 +7,7 @@ export function createScene(canvas, { reduced }) {
   const mobile = matchMedia('(max-width: 700px)').matches;
   renderer.setPixelRatio(Math.min(devicePixelRatio || 1, mobile ? 1.15 : 1.5));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(34, 1, .1, 100); camera.position.set(0, 0, 10.7);
   const faces = Array.from({ length: 6 }, (_, i) => {
@@ -16,10 +17,10 @@ export function createScene(canvas, { reduced }) {
     ctx.fillStyle = g; ctx.fillRect(0, 0, 128, 128); return c;
   });
   const environment = new THREE.CubeTexture(faces); environment.needsUpdate = true; environment.colorSpace = THREE.SRGBColorSpace; scene.environment = environment;
-  scene.add(new THREE.HemisphereLight(0xffffff, 0xa8a3d6, 2));
-  const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(3, 5, 6); scene.add(key);
-  const fill = new THREE.DirectionalLight(0xaadfff, 1.3); fill.position.set(-4, 1, 3); scene.add(fill);
-  const sparkleLight = new THREE.DirectionalLight(0xffffff, 1.6); sparkleLight.position.set(-2, 3, 5); scene.add(sparkleLight);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0xa8a3d6, 1.3));
+  const key = new THREE.DirectionalLight(0xffffff, 1.9); key.position.set(3, 5, 6); scene.add(key);
+  const fill = new THREE.DirectionalLight(0xaadfff, 1.0); fill.position.set(-4, 1, 3); scene.add(fill);
+  const sparkleLight = new THREE.DirectionalLight(0xffffff, 1.3); sparkleLight.position.set(-2, 3, 5); scene.add(sparkleLight);
   const group = new THREE.Group(); scene.add(group); group.rotation.set(-.12, -.25, -.12);
   // Round each star corner before beveling the shape to create a soft jelly silhouette.
   const points = []; const count = 10;
@@ -27,25 +28,25 @@ export function createScene(canvas, { reduced }) {
   const star = new THREE.Shape();
   for (let i=0; i<count; i++) { const prev=points[(i+count-1)%count], cur=points[i], next=points[(i+1)%count]; const before=cur.clone().lerp(prev,.19), after=cur.clone().lerp(next,.19); if(i===0) star.moveTo(before.x,before.y); else star.lineTo(before.x,before.y); star.quadraticCurveTo(cur.x,cur.y,after.x,after.y); } star.closePath();
   const starGeo = new THREE.ExtrudeGeometry(star,{depth:.3,bevelEnabled:true,bevelThickness:.22,bevelSize:.18,bevelSegments:4,curveSegments:6});
-  const jelly = new THREE.MeshPhysicalMaterial({color:0xc6a6ed,metalness:.12,roughness:.21,clearcoat:1,clearcoatRoughness:.09,transmission:mobile?0:.14,thickness:.28,envMapIntensity:1.4});
+  const jelly = new THREE.MeshPhysicalMaterial({color:0xb37bdd,metalness:.12,roughness:.21,clearcoat:1,clearcoatRoughness:.09,transmission:mobile?0:.14,thickness:.28,envMapIntensity:1.4});
   const starMesh=new THREE.Mesh(starGeo,jelly);starMesh.position.set(-.05,.05,.45);starMesh.rotation.z=-.18;group.add(starMesh);
-  const ringMaterial=new THREE.MeshPhysicalMaterial({color:0xa9d8f7,metalness:.32,roughness:.17,clearcoat:1,clearcoatRoughness:.08,transparent:true,opacity:.83,envMapIntensity:1.6});
+  const ringMaterial=new THREE.MeshPhysicalMaterial({color:0x65baf0,metalness:.32,roughness:.17,clearcoat:1,clearcoatRoughness:.08,transparent:true,opacity:.83,envMapIntensity:1.6});
   const ring=new THREE.Mesh(new THREE.TorusGeometry(2.05,.09,12,80),ringMaterial);ring.rotation.set(1.06,-.13,-.48);ring.position.set(.02,-.24,.07);group.add(ring);
-  const innerRing=new THREE.Mesh(new THREE.TorusGeometry(2.05,.022,8,80),new THREE.MeshStandardMaterial({color:0xffd1ec,metalness:.55,roughness:.15}));innerRing.rotation.copy(ring.rotation);innerRing.position.copy(ring.position);innerRing.position.z+=.12;group.add(innerRing);
-  const orb=new THREE.Mesh(new THREE.SphereGeometry(.35,24,16),new THREE.MeshPhysicalMaterial({color:0x86c8fb,metalness:.13,roughness:.14,clearcoat:1,clearcoatRoughness:.07,envMapIntensity:1.5}));orb.position.set(1.84,.62,.3);group.add(orb);
-  const pearl=new THREE.Mesh(new THREE.SphereGeometry(.14,20,12),new THREE.MeshPhysicalMaterial({color:0xffa9d4,metalness:.12,roughness:.18,clearcoat:1}));pearl.position.set(-1.8,-.78,.35);group.add(pearl);
+  const innerRing=new THREE.Mesh(new THREE.TorusGeometry(2.05,.022,8,80),new THREE.MeshStandardMaterial({color:0xf28ec8,metalness:.55,roughness:.15}));innerRing.rotation.copy(ring.rotation);innerRing.position.copy(ring.position);innerRing.position.z+=.12;group.add(innerRing);
+  const orb=new THREE.Mesh(new THREE.SphereGeometry(.35,24,16),new THREE.MeshPhysicalMaterial({color:0x58b8f7,metalness:.13,roughness:.14,clearcoat:1,clearcoatRoughness:.07,envMapIntensity:1.5}));orb.position.set(1.84,.62,.3);group.add(orb);
+  const pearl=new THREE.Mesh(new THREE.SphereGeometry(.14,20,12),new THREE.MeshPhysicalMaterial({color:0xf67fc1,metalness:.12,roughness:.18,clearcoat:1}));pearl.position.set(-1.8,-.78,.35);group.add(pearl);
   // Small solid, beveled details share geometry and inexpensive reflective materials.
-  const miniStarMaterial = new THREE.MeshPhysicalMaterial({color:0xffacd8,metalness:.16,roughness:.13,clearcoat:1,clearcoatRoughness:.05,envMapIntensity:1.5});
+  const miniStarMaterial = new THREE.MeshPhysicalMaterial({color:0xf58bc9,metalness:.16,roughness:.13,clearcoat:1,clearcoatRoughness:.05,envMapIntensity:1.5});
   const miniStar = new THREE.Mesh(starGeo, miniStarMaterial);
   miniStar.scale.setScalar(.17); miniStar.position.set(-1.58,1.02,.7); miniStar.rotation.z=.28; group.add(miniStar);
-  const miniStar2 = new THREE.Mesh(starGeo, new THREE.MeshPhysicalMaterial({color:0xc8b4f0,metalness:.2,roughness:.15,clearcoat:1,clearcoatRoughness:.06}));
+  const miniStar2 = new THREE.Mesh(starGeo, new THREE.MeshPhysicalMaterial({color:0xb693e7,metalness:.2,roughness:.15,clearcoat:1,clearcoatRoughness:.06}));
   miniStar2.scale.setScalar(.10); miniStar2.position.set(1.48,-1.1,.7); miniStar2.rotation.z=-.2; group.add(miniStar2);
   const heartShape = new THREE.Shape();
   heartShape.moveTo(0,-.62); heartShape.bezierCurveTo(-.2,-.42,-.62,-.12,-.62,.18); heartShape.bezierCurveTo(-.62,.56,-.18,.7,0,.36); heartShape.bezierCurveTo(.18,.7,.62,.56,.62,.18); heartShape.bezierCurveTo(.62,-.12,.2,-.42,0,-.62);
   const heartGeo = new THREE.ExtrudeGeometry(heartShape,{depth:.12,bevelEnabled:true,bevelThickness:.09,bevelSize:.08,bevelSegments:3,curveSegments:6});
-  const heart = new THREE.Mesh(heartGeo,new THREE.MeshPhysicalMaterial({color:0xff9bcf,metalness:.12,roughness:.14,clearcoat:1,clearcoatRoughness:.06}));
+  const heart = new THREE.Mesh(heartGeo,new THREE.MeshPhysicalMaterial({color:0xf879bb,metalness:.12,roughness:.14,clearcoat:1,clearcoatRoughness:.06}));
   heart.scale.setScalar(.38);heart.position.set(-1.65,-.76,.75);heart.rotation.z=.23;group.add(heart);
-  const miniRing = new THREE.Mesh(new THREE.TorusGeometry(.22,.038,8,32),new THREE.MeshPhysicalMaterial({color:0xb5ddff,metalness:.38,roughness:.14,clearcoat:1}));
+  const miniRing = new THREE.Mesh(new THREE.TorusGeometry(.22,.038,8,32),new THREE.MeshPhysicalMaterial({color:0x7fcaf8,metalness:.38,roughness:.14,clearcoat:1}));
   miniRing.position.set(1.65,1.05,.55);miniRing.rotation.set(.5,.5,.2);group.add(miniRing);
   let visible=true, inView=true, raf=0;
   const target={x:-.12,y:-.25};let dragging=false, previousX=0,previousY=0;

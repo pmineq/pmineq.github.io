@@ -36,3 +36,12 @@ body.studio-page{background-color:#faf8ff;background-image:radial-gradient(rgba(
 @media(max-width:700px){.studio-page .official-logo{width:112px;height:63px}.studio-page .footer-mark .official-logo{width:98px;height:55px}.studio-page .hero h1{font-size:clamp(70px,21vw,140px)}}
 .studio-page .hero h1{font-size:clamp(84px,15vw,230px);white-space:nowrap}
 @media(max-width:700px){.studio-page .hero h1{font-size:clamp(70px,21vw,140px)}}
+/* Refinements to the existing studio theme. */
+.studio-page .official-logo{width:154px;height:82px;mix-blend-mode:multiply;filter:contrast(1.08) brightness(1.08)}
+.studio-page .footer-mark .official-logo{width:132px;height:72px}
+.studio-page .hero h1,.studio-page .section-heading h2,.studio-page .studio h2{font-weight:800;-webkit-text-stroke:.008em;paint-order:stroke fill}
+.studio-page .hero-art::before{content:"";position:absolute;left:20%;bottom:10%;width:62%;height:13%;background:radial-gradient(ellipse,rgba(107,77,145,.25),rgba(107,77,145,0) 68%);pointer-events:none}
+.studio-page .hero-art-fallback{inset:2%;display:grid;place-items:center}.studio-page .fallback-art{width:100%;height:100%;overflow:visible}
+.studio-page .next-badge{width:74px;height:74px;border:1.5px dashed #b9a2d7;border-radius:21px;background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(227,211,249,.84));box-shadow:inset 0 2px 3px #fff,0 7px 18px rgba(124,80,139,.12);display:grid;place-items:center;color:#9271bd}
+.studio-page .next-badge span{font:400 32px/1 "Plus Jakarta Sans",sans-serif;transform:translateY(-1px)}
+@media(max-width:700px){.studio-page .official-logo{width:126px;height:68px}.studio-page .footer-mark .official-logo{width:108px;height:58px}.studio-page .next-badge{width:54px;height:54px;border-radius:16px}.studio-page .next-badge span{font-size:25px}}
