@@ -1,0 +1,1 @@
+{"name":"zenco-studio","version":"1.0.0","private":true,"type":"module","scripts":{"dev":"vite --host 127.0.0.1","build":"vite build","preview":"vite preview --host 127.0.0.1"},"dependencies":{"gsap":"^3.13.0","motion":"^12.23.24","three":"^0.180.0"},"devDependencies":{"playwright":"^1.65.1","vite":"^8.1.4"}}
