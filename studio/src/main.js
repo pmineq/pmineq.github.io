@@ -11,7 +11,7 @@ if (!reduced) {
   gsap.utils.toArray('.app-row').forEach((el, index) => {
     gsap.from(el, { y: 18, opacity: 0, duration: .65, delay: index * .08, scrollTrigger: { trigger: el, start: 'top 92%', once: true } });
   });
-  const thumb = document.querySelector('.mobile-thumb');
+  const thumb = document.querySelector('.app-icon');
   if (thumb) gsap.fromTo(thumb, { rotate: -3, y: 12 }, { rotate: 5, y: 0, ease: 'none', scrollTrigger: { trigger: thumb, start: 'top bottom', end: 'bottom center', scrub: .5 } });
   const capture = document.querySelector('.capture-main');
   if (capture) gsap.fromTo(capture, { rotate: -10, y: 45 }, { rotate: -3, y: 0, ease: 'none', scrollTrigger: { trigger: capture, start: 'top bottom', end: 'center center', scrub: .7 } });
@@ -22,6 +22,12 @@ if (!reduced) {
     row.addEventListener('pointermove', e => { animate(preview, { left: e.clientX + 100, top: e.clientY }, { type: spring, stiffness: 220, damping: 30 }); });
     row.addEventListener('pointerleave', () => { animate(preview, { opacity: 0, scale: .94 }, { duration: .18 }).then(() => { preview.style.visibility = 'hidden'; }); });
   }
+  document.querySelectorAll('.app-row[href]').forEach(item => {
+    const icon = item.querySelector('.app-icon');
+    const title = item.querySelector('.app-name');
+    item.addEventListener('pointerenter', () => { animate(title, { x: 7 }, { type: spring, stiffness: 300, damping: 24 }); if (icon) animate(icon, { rotate: -5, scale: 1.05 }, { type: spring, stiffness: 260, damping: 18 }); });
+    item.addEventListener('pointerleave', () => { animate(title, { x: 0 }, { type: spring, stiffness: 300, damping: 24 }); if (icon) animate(icon, { rotate: 0, scale: 1 }, { type: spring, stiffness: 260, damping: 18 }); });
+  });
   document.querySelectorAll('.button.primary').forEach(button => {
     button.addEventListener('pointerdown', () => animate(button, { scale: .97 }, { duration: .12 }));
     ['pointerup','pointercancel','pointerleave'].forEach(event => button.addEventListener(event, () => animate(button, { scale: 1 }, { type: spring, stiffness: 500, damping: 20 })));
