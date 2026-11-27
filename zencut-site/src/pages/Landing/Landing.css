@@ -417,40 +417,76 @@
   width:78%;
   padding:0 10px 20px;
 }
+/* Same 1080 × 1920 canvas and 2 × 2 slot geometry as StoryCutLayout.swift. */
 .print-paper {
-  background:#fffafa;
-  padding:14px 12px 20px;
+  aspect-ratio:9 / 16;
+  container-type:inline-size;
+  width:100%;
+  position:relative;
+  background-color:#fff0fa;
+  background-image:
+    linear-gradient(rgba(255,153,199,.18) .5px,transparent .5px),
+    linear-gradient(90deg,rgba(255,153,199,.18) .5px,transparent .5px),
+    linear-gradient(rgba(140,102,153,.18) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(140,102,153,.18) 1px,transparent 1px),
+    linear-gradient(135deg,#fff7fc,#ffe6f7 54%,#fff2fc);
+  background-size:3.333333% 1.875%,3.333333% 1.875%,13.333333% 7.5%,13.333333% 7.5%,100% 100%;
   box-shadow:3px 7px 10px #74435a33;
   text-align:center;
-  position:relative;
-  border:1px solid #ead8e1;
 }
-.strip-header {
-  font-size:8px;
-  letter-spacing:1.8px;
-  margin-bottom:10px;
+.print-paper::before,.print-paper::after {
+  content:'';
+  position:absolute;
+  pointer-events:none;
 }
-.strip-shot {
-  height:115px;
-  background-image:url('/landing/hero.jpg');
-  background-size:260%;
-  background-position:29% 43%;
-  margin-bottom:7px;
+.print-paper::before {
+  inset:1.354167% 2.407407%;
+  border:2px solid #ffffffc7;
 }
-.shot-1,.shot-3 {
-  background-image:url('/landing/print.jpg');
-  background-size:320%;
-  background-position:24% 50%;
+.print-paper::after {
+  inset:1.875% 3.333333%;
+  border:1px solid #f794c761;
 }
-.shot-2 {
-  filter:grayscale(1);
+.story-grid {
+  position:absolute;
+  left:7.037037%;
+  top:8.020833%;
+  width:85.925926%;
+  height:64.270833%;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  grid-template-rows:repeat(2,minmax(0,1fr));
+  column-gap:1.077586%;
+  row-gap:.810373%;
 }
-.print-paper p {
-  font-size:13px;
-  margin:16px 0 3px;
+.story-shot {
+  width:100%;
+  height:100%;
+  min-width:0;
+  min-height:0;
+  object-fit:cover;
 }
-.print-paper small {
-  font-size:8px;
+.print-paper .story-caption,.print-paper .story-date {
+  position:absolute;
+  left:7.037037%;
+  width:85.925926%;
+  margin:0;
+  color:#6b4b62;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  line-height:1.5;
+}
+.print-paper .story-caption {
+  top:90.104167%;
+  height:3.333333%;
+  font-size:3.888889cqw;
+  font-weight:600;
+}
+.print-paper .story-date {
+  top:94.270833%;
+  height:3.75%;
+  font-size:3.518519cqw;
 }
 .print-note {
   display:block;
@@ -756,9 +792,6 @@ html:has(.zencut-landing) {
   }
   .printer {
     max-width:300px;
-  }
-  .strip-shot {
-    height:105px;
   }
   .frames-heading {
     display:block;

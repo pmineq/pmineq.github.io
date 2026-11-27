@@ -149,9 +149,10 @@ export default function Landing() {
             <div className="printer-head"><span>ZENCUT</span><span>MEMORY PRINTER</span></div>
             <div className="printer-slot"/>
             <div className="paper-viewport"><div className="print-paper">
-              <div className="strip-header">OUR LITTLE MOMENTS</div>
-              {[0,1,2,3].map(i => <div key={i} className={`strip-shot shot-${i}`} role="img" aria-label={`${t.stripAlt} ${i + 1}`}/>)}
-              <p>{t.stripCaption}</p><small>2026.11.19 · ZENCUT</small>
+              <div className="story-grid">
+                {[1,2,3,4].map(i => <img key={i} className="story-shot" src={asset(`story-photo-${i}.webp`)} width="459" height="612" loading="lazy" alt={`${t.stripAlt} ${i}`}/>)}
+              </div>
+              <p className="story-caption">{t.stripCaption}</p><small className="story-date">2026.11.19</small>
             </div></div>
             <span className="handwritten print-note">{t.printNote}</span>
           </div>
