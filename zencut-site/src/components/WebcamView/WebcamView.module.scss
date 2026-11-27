@@ -1,0 +1,328 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cameraBody {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 22px;
+  padding: 18px 18px 20px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 222, 240, 0.68) 54%, rgba(229, 237, 244, 0.78)),
+    radial-gradient(circle at 20% 8%, rgba(255, 255, 255, 0.95), transparent 26%);
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.96),
+    inset 0 -18px 30px rgba(122, 96, 121, 0.1),
+    0 20px 50px rgba(143, 83, 124, 0.22);
+}
+
+.cameraBody::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.3), transparent 20% 72%, rgba(125, 143, 154, 0.12));
+}
+
+.topPanel {
+  position: relative;
+  z-index: 1;
+  height: 92px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.64), rgba(185, 184, 176, 0.2));
+  border: 1px solid rgba(132, 126, 132, 0.18);
+  box-shadow:
+    inset 0 2px 0 rgba(255, 255, 255, 0.78),
+    inset 0 -2px 6px rgba(89, 78, 82, 0.12);
+}
+
+.printSlot {
+  position: absolute;
+  left: 44px;
+  right: 44px;
+  bottom: 24px;
+  height: 22px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #3b3940, #070708 48%, #1f1f22);
+  border: 5px solid rgba(255, 255, 255, 0.46);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.72),
+    inset 0 2px 4px rgba(0, 0, 0, 0.85);
+}
+
+.topScrew {
+  position: absolute;
+  right: 20px;
+  top: 17px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #716f73;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.42);
+}
+
+.lensDot {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 22px;
+  height: 22px;
+  margin: 15px auto 16px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 48% 44%, #0b0c0e 0 28%, #2d3037 29% 50%, #08080a 51%),
+    #111;
+  border: 4px solid rgba(245, 242, 245, 0.86);
+  box-shadow: 0 2px 4px rgba(61, 52, 72, 0.28);
+}
+
+.cameraFace {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 74px;
+  gap: 16px;
+  align-items: start;
+}
+
+.videoBox {
+  position: relative;
+  aspect-ratio: 7 / 10;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #0f0d13;
+  border: 8px solid rgba(73, 72, 74, 0.74);
+  box-shadow:
+    0 0 0 5px rgba(255, 255, 255, 0.62),
+    0 12px 20px rgba(61, 52, 72, 0.18),
+    inset 0 0 0 2px rgba(255, 255, 255, 0.18);
+}
+
+.videoBox::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.17;
+  background:
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.22) 0 1px, transparent 1px 4px),
+    radial-gradient(circle at 50% 50%, transparent 44%, rgba(255, 189, 220, 0.2));
+  mix-blend-mode: screen;
+}
+
+.videoBox.softMode::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: rgba(255, 182, 216, 0.16);
+  mix-blend-mode: screen;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.frameOverlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.sidePreview {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 4px;
+  width: 74px;
+  padding: 10px 7px 9px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 3px solid rgba(50, 47, 55, 0.82);
+  box-shadow:
+    inset 0 -16px 0 rgba(255, 255, 255, 0.72),
+    0 10px 20px rgba(61, 52, 72, 0.12);
+}
+
+.statusLed {
+  position: absolute;
+  top: -22px;
+  right: 16px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #6cf66c;
+  box-shadow: 0 0 8px rgba(90, 255, 104, 0.74);
+}
+
+.previewSlot {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 7 / 10;
+  border-radius: 2px;
+  border: 1px solid rgba(143, 118, 156, 0.34);
+  background: linear-gradient(135deg, rgba(255, 234, 246, 0.92), rgba(246, 241, 255, 0.92));
+  display: grid;
+  place-items: center;
+  color: rgba(61, 52, 72, 0.46);
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.previewSlot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.previewSlot.filled {
+  border-color: rgba(255, 255, 255, 0.96);
+}
+
+.previewSlot.justCaptured {
+  animation: attachShot 680ms ease-out;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(19, 14, 22, 0.48);
+  color: #fff;
+  z-index: 5;
+  font-weight: 800;
+}
+
+.actions {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  align-items: center;
+  width: min(320px, 78%);
+  margin: 22px auto 0;
+}
+
+.controlBtn,
+.snapBtn {
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  min-width: 48px;
+  height: 48px;
+  padding: 0;
+  border-radius: 50%;
+  color: rgba(61, 52, 72, 0.76);
+  font-size: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.82);
+  background: radial-gradient(circle at 50% 28%, #ffffff 0 18%, #e3e0d8 48%, #aaa99d 100%);
+  box-shadow:
+    inset 0 -3px 7px rgba(73, 72, 74, 0.24),
+    0 7px 14px rgba(61, 52, 72, 0.16);
+}
+
+.snapBtn {
+  width: 76px;
+  min-width: 76px;
+  height: 76px;
+  color: #fff;
+  font-size: 30px;
+  background: radial-gradient(circle at 50% 28%, #fff 0 13%, #ffcae3 38%, #f26ca9 100%);
+  box-shadow:
+    inset 0 -5px 10px rgba(172, 91, 138, 0.26),
+    0 12px 26px rgba(242, 108, 169, 0.32);
+}
+
+.controlBtn:active,
+.snapBtn:active {
+  transform: scale(0.96);
+}
+
+.controlBtn:disabled,
+.snapBtn:disabled {
+  opacity: 0.42;
+}
+
+.none { filter: none; }
+.mono { filter: grayscale(1) contrast(1.08); }
+.warm { filter: sepia(0.22) saturate(1.1) brightness(1.05); }
+.cool { filter: hue-rotate(170deg) saturate(1.04) brightness(1.03); }
+.vivid { filter: saturate(1.28) contrast(1.08) brightness(1.04); }
+.retro { filter: sepia(0.3) contrast(1.02) brightness(1.03); }
+.soft { filter: brightness(1.15) contrast(0.92) saturate(1.08) sepia(0.08) hue-rotate(-8deg); }
+
+@keyframes attachShot {
+  0% {
+    opacity: 0;
+    transform: translateX(12px) scale(0.84);
+  }
+  48% {
+    opacity: 1;
+    transform: translateX(0) scale(1.08);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .wrap {
+    gap: 0;
+  }
+
+  .cameraBody {
+    border-radius: 0 0 22px 22px;
+    padding: 12px 12px 18px;
+  }
+
+  .topPanel {
+    height: 76px;
+  }
+
+  .printSlot {
+    left: 36px;
+    right: 36px;
+    bottom: 20px;
+    height: 18px;
+  }
+
+  .lensDot {
+    margin: 12px auto 13px;
+  }
+
+  .cameraFace {
+    grid-template-columns: minmax(0, 1fr) 64px;
+    gap: 10px;
+  }
+
+  .videoBox {
+    border-width: 6px;
+  }
+
+  .sidePreview {
+    width: 64px;
+    padding: 9px 6px 8px;
+  }
+
+  .actions {
+    width: min(290px, 82%);
+    margin-top: 18px;
+  }
+}

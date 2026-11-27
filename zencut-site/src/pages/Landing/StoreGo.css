@@ -1,0 +1,50 @@
+/* Store links stay native anchors, with visual and keyboard order matching. */
+.smart-store-links { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; max-width:510px; }
+.zencut-landing .smart-store-links .store-button { min-width:0; min-height:86px; padding:15px 18px; border:1px solid #947088; background:#fff5fa; color:var(--ink)!important; box-shadow:3px 3px 0 #ddcce8; border-radius:14px; }
+.smart-store-links .store-button>svg { width:25px; height:30px; flex-shrink:0; }
+.smart-store-links .store-button>span { font-size:18px; }
+.smart-store-links .store-button .store-arrow { margin-left:auto; font-size:22px; }
+.smart-store-links .store-button.is-primary { background:#b82362; color:#fff!important; border-color:#b82362; box-shadow:4px 4px 0 #e8afd0; }
+.smart-store-links:not(.device-other) { grid-template-columns:1fr; max-width:420px; }
+.smart-store-links:not(.device-other) .store-button:not(.is-primary) { min-height:62px; background:transparent; box-shadow:none; }
+.smart-store-links:not(.device-other) .store-button:not(.is-primary) .store-price { display:none; }
+.store-device-note { font-size:13px; color:#765060; margin:0 0 12px; }
+.download-section .smart-store-links { margin-inline:auto; text-align:left; }
+.store-go { min-height:100svh; display:flex; flex-direction:column; background:radial-gradient(ellipse at 12% 20%,#ffd7e9,transparent 50%),radial-gradient(ellipse at 90% 80%,#e5d8ff,transparent 55%),#fffafb; }
+.go-header { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:25px clamp(20px,6vw,80px); }
+.go-header>a:last-child { font-size:12px; letter-spacing:1px; }
+.go-main { flex:1; width:min(100% - 40px,620px); margin:auto; padding:35px 0 50px; display:flex; flex-direction:column; justify-content:center; }
+.go-card { background:#fffafb; border:1px solid #a881a1; border-radius:22px; box-shadow:8px 8px 0 #ddc7e6; overflow:hidden; }
+.go-titlebar { display:flex; justify-content:space-between; gap:10px; padding:14px 22px; border-bottom:1px solid #cdb2cf; background:linear-gradient(110deg,#f9d7e7,#e9defb); font-family:'Zencut Pixel',monospace; font-size:12px; letter-spacing:.04em; }
+.go-titlebar span:last-child { color:#b82362; }
+.go-card-body { padding:36px clamp(20px,5vw,44px) 30px; text-align:center; }
+.go-icon { width:92px; height:92px; border-radius:24px; display:block; margin:0 auto 28px; transform:rotate(-5deg); box-shadow:4px 6px 0 #efd9e8; }
+.go-card-body .eyebrow { font-size:11px; color:#a34470; margin-bottom:18px; }
+.zencut-landing .go-card h1 { font-size:clamp(28px,5vw,40px); line-height:1.35; letter-spacing:-.04em; margin:0 0 18px; }
+.go-status { min-height:3.3em; font-size:16px; margin:0 auto 20px; max-width:400px; }
+.go-progress { height:5px; background:#f3e7f4; border-radius:10px; overflow:hidden; margin:0 0 28px; }
+.go-progress span { display:block; height:100%; width:100%; background:linear-gradient(90deg,#e57ba9,#ad86d9); transform-origin:left; animation:go-progress 1.2s linear both; }
+.go-progress.is-done span { animation:none; transform:scaleX(1); }
+@keyframes go-progress { from {transform:scaleX(0)} to {transform:scaleX(1)} }
+.go-card .smart-store-links { margin:0 auto; text-align:left; }
+.go-help { font-size:12px; color:#765060; margin:22px 0 0; }
+.go-back { display:inline-block; margin-top:28px; text-decoration:underline!important; text-underline-offset:5px; font-size:13px; }
+.go-caption { text-align:center; margin:30px 0 0; font-size:13px; color:#805d78; }
+.go-caption span { color:#b82362; }
+.go-footer { text-align:center; font-family:'Zencut Pixel',monospace; font-size:10px; letter-spacing:.06em; padding:0 20px 25px; color:#805d78; }
+@media(max-width:550px) {
+  .smart-store-links .store-button { padding:13px 10px; gap:8px; }
+  .smart-store-links .store-button>svg { width:20px; height:25px; }
+  .smart-store-links .store-button>span { font-size:16px; }
+  .smart-store-links.device-other .store-arrow { display:none; }
+  .smart-store-links .store-button small { font-size:10px; }
+  .zencut-landing[lang='th'] .smart-store-links.device-other .store-button { width:auto; justify-content:flex-start; }
+  .go-header { padding:22px 20px; }
+  .go-main { padding-top:20px; }
+  .go-card { border-radius:18px; box-shadow:5px 5px 0 #ddc7e6; }
+  .go-card-body { padding:30px 16px 26px; }
+  .go-card .device-other { gap:8px; }
+  .go-card .device-other .store-button>span { font-size:14px; }
+  .go-icon { width:80px; height:80px; border-radius:21px; }
+  .go-status { font-size:14px; }
+}

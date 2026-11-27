@@ -1,0 +1,183 @@
+.wrap {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  border-radius: 8px;
+  padding: 14px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.86), rgba(255, 218, 239, 0.72)),
+    linear-gradient(90deg, rgba(210, 238, 255, 0.28), rgba(255, 255, 255, 0));
+}
+
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 800;
+  color: #3d3448;
+}
+
+.subtitle {
+  margin: 4px 0 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: rgba(61, 52, 72, 0.62);
+}
+
+.count {
+  min-width: 46px;
+  height: 28px;
+  padding: 0 9px;
+  border: 1px solid rgba(255, 255, 255, 0.92);
+  border-radius: 999px;
+  display: inline-grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 800;
+  color: #3d3448;
+  background: linear-gradient(180deg, #ffffff, #f5e6ff 48%, #ffd3e8);
+}
+
+.storyCard {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  padding: 14px;
+  aspect-ratio: 9 / 16;
+  background:
+    radial-gradient(circle at 14% 8%, rgba(255, 255, 255, 0.86) 0 4px, transparent 5px),
+    radial-gradient(circle at 82% 9%, rgba(196, 236, 255, 0.42) 0 18px, transparent 38px),
+    radial-gradient(circle at 14% 88%, rgba(255, 160, 208, 0.18) 0 42px, transparent 84px),
+    linear-gradient(112deg, transparent 12%, rgba(255, 255, 255, 0.28) 12% 17%, transparent 17% 55%, rgba(216, 196, 255, 0.18) 55% 60%, transparent 60%),
+    repeating-linear-gradient(0deg, transparent 0 34px, rgba(255, 255, 255, 0.7) 34px 36px, transparent 36px 70px),
+    repeating-linear-gradient(90deg, transparent 0 34px, rgba(255, 255, 255, 0.7) 34px 36px, transparent 36px 70px),
+    repeating-linear-gradient(0deg, transparent 0 68px, rgba(242, 108, 169, 0.2) 68px 74px, transparent 74px 142px),
+    repeating-linear-gradient(90deg, transparent 0 68px, rgba(242, 108, 169, 0.2) 68px 74px, transparent 74px 142px),
+    linear-gradient(135deg, rgba(255, 248, 251, 0.92), rgba(255, 210, 235, 0.86));
+  border: 1px solid rgba(169, 142, 181, 0.34);
+}
+
+.storyCard::before,
+.storyCard::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.storyCard::before {
+  inset: 8px;
+  opacity: 0.72;
+  background:
+    radial-gradient(circle, rgba(255, 255, 255, 0.78) 0 3px, transparent 4px) 0 0 / 28px 28px,
+    radial-gradient(circle at 50% 0, transparent 0 9px, rgba(255, 255, 255, 0.58) 10px 11px, transparent 12px) 0 0 / 42px 26px,
+    radial-gradient(circle at 50% 100%, transparent 0 9px, rgba(255, 255, 255, 0.52) 10px 11px, transparent 12px) 0 100% / 42px 26px;
+  background-repeat: repeat-x, repeat-x, repeat-x;
+}
+
+.storyCard::after {
+  inset: 0;
+  opacity: 0.8;
+  background:
+    linear-gradient(90deg, transparent 0 9%, rgba(255, 255, 255, 0.54) 9% 9.8%, transparent 9.8% 90%, rgba(255, 255, 255, 0.48) 90% 90.8%, transparent 90.8%),
+    radial-gradient(circle at 10% 48%, rgba(255, 255, 255, 0.78) 0 2px, transparent 3px),
+    radial-gradient(circle at 90% 52%, rgba(255, 255, 255, 0.72) 0 2px, transparent 3px),
+    radial-gradient(circle at 18% 94%, rgba(255, 255, 255, 0.88) 0 3px, transparent 4px),
+    radial-gradient(circle at 84% 93%, rgba(255, 255, 255, 0.88) 0 3px, transparent 4px);
+}
+
+.grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.slot {
+  position: relative;
+  aspect-ratio: 7 / 10;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.82);
+  background:
+    radial-gradient(circle at 18% 18%, rgba(255, 255, 255, 0.9) 0 3px, transparent 4px),
+    radial-gradient(circle at 78% 82%, rgba(255, 255, 255, 0.62) 0 2px, transparent 3px),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.72), rgba(247, 241, 255, 0.84)),
+    radial-gradient(circle at 70% 20%, rgba(255, 255, 255, 0.8), transparent 34%);
+  display: grid;
+  place-items: center;
+}
+
+.slot.filled {
+  cursor: pointer;
+  border-color: rgba(255, 255, 255, 0.92);
+}
+
+.slot.justCaptured {
+  animation: slotPop 680ms ease-out;
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.slotNumber,
+.emptyMark {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.slotNumber {
+  color: #fff;
+  background: rgba(242, 108, 169, 0.82);
+}
+
+.emptyMark {
+  position: static;
+  color: rgba(61, 52, 72, 0.44);
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.removeBtn {
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.86);
+  border-radius: 999px;
+  background: rgba(61, 52, 72, 0.58);
+  color: #fff;
+  font-size: 15px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@keyframes slotPop {
+  0% {
+    transform: scale(0.9) rotate(-2deg);
+  }
+  44% {
+    transform: scale(1.04) rotate(1deg);
+  }
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
