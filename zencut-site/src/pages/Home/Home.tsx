@@ -181,7 +181,7 @@ export default function Home() {
               disabled={shots.length < MAX_SHOTS}
             >
               STORY CUT 저장
-            </Button> 
+            </Button>
           </div>
 
 
@@ -215,7 +215,7 @@ export default function Home() {
           <span className="blind">촬영</span>
         </button>
 
-        
+
         {/* 좌하단 최근사진 스택 */}
         <button
           type="button"
@@ -254,7 +254,7 @@ export default function Home() {
             닫기
           </button>
         </div>
-        
+
         <div className={cx("modalToolbar")}>
           <Button
               size="md"
