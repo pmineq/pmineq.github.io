@@ -12,8 +12,7 @@ import { pricingMessages } from './pricingTranslations';
 import './Landing.css';
 import './StoreGo.css';
 import StoreLinks from './StoreLinks';
-import { storeGuide } from './storeGuide';
-import { detectOS, storeDestination } from './storeRouting';
+import { storeDestination } from './storeRouting';
 
 const asset = (name: string) => `${import.meta.env.BASE_URL}landing/${name}`;
 const frames = [
@@ -33,8 +32,6 @@ export default function Landing() {
   const reduced = useReducedMotion();
   const t = messages[locale];
   const pt = pricingMessages[locale];
-  const os = detectOS(navigator);
-  const guide = storeGuide[storeDestination(navigator.language).locale];
 
   function changeLanguage(value: string) {
     if (!locales.includes(value as Locale)) return;
@@ -99,7 +96,6 @@ export default function Landing() {
           <p className="eyebrow">A LITTLE CAMERA. A LOT OF US.</p>
           <h1>{t.heroTitle}<br/><em>{t.heroAccent}</em></h1>
           <p className="hero-description localized-lines">{t.heroDescription}</p>
-          <p className="store-device-note">{os === 'other' ? guide.choose : guide.detected.replace('{device}', os === 'ios' ? 'iOS' : 'Android')}</p>
           <StoreLinks locale={locale} country={country} copy={t}/>
           <p className="purchase-note">{t.purchaseNote}</p><a className="store-country-hint" href="#download">{pt.country}: {countryName(country, locale)}</a>
           <a className="scroll-note" href="#experience">{t.scrollNote}<span aria-hidden="true">↓</span></a>

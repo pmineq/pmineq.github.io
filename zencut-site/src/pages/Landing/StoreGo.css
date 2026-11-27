@@ -8,7 +8,6 @@
 .smart-store-links:not(.device-other) { grid-template-columns:1fr; max-width:420px; }
 .smart-store-links:not(.device-other) .store-button:not(.is-primary) { min-height:62px; background:transparent; box-shadow:none; }
 .smart-store-links:not(.device-other) .store-button:not(.is-primary) .store-price { display:none; }
-.store-device-note { font-size:13px; color:#765060; margin:0 0 12px; }
 .download-section .smart-store-links { margin-inline:auto; text-align:left; }
 .store-go { min-height:100svh; display:flex; flex-direction:column; background:radial-gradient(ellipse at 12% 20%,#ffd7e9,transparent 50%),radial-gradient(ellipse at 90% 80%,#e5d8ff,transparent 55%),#fffafb; }
 .go-header { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:25px clamp(20px,6vw,80px); }
