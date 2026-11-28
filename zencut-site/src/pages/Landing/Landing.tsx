@@ -130,7 +130,7 @@ export default function Landing() {
             <div className="preview-status" aria-live="polite">{mode === 'photo' ? t.photoStatus : t.movingStatus}</div>
           </div>
           <div className="demo-footer">
-            <motion.span className={`shutter ${mode}`} animate={mode === 'moving' && !reduced ? { scale: [1, .93, 1] } : { scale: 1 }} transition={{ duration: .5 }} aria-hidden="true">♡</motion.span>
+            <motion.img className={`shutter ${mode}`} src={asset('capture-button.webp')} width="189" height="192" alt="" animate={mode === 'moving' && !reduced ? { scale: [1, .93, 1] } : { scale: 1 }} transition={{ duration: .5 }} aria-hidden="true"/>
             <p>{mode === 'photo' ? t.photoHelp : t.movingHelp}<small>{t.previewNote}</small></p>
           </div>
         </div>

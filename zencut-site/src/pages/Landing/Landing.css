@@ -327,20 +327,11 @@
   margin-top:20px;
 }
 .shutter {
-  display:grid;
-  place-items:center;
-  border:5px solid #ffecf4;
-  outline:1px solid #ad5f82;
-  background:#ef94b8;
+  display:block;
   width:62px;
-  height:62px;
-  border-radius:50%;
-  font-size:37px;
-  color:white;
+  height:auto;
+  object-fit:contain;
   flex-shrink:0;
-}
-.shutter.moving {
-  background:#dc337b;
 }
 .demo-footer p {
   font-size:14px;
